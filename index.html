@@ -3,233 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angel Construction & Roofing | Premium Craftsmanship</title>
+    <title>Elite Asset Protection | Premium Roofing</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brandDark: '#0f172a',
-                        brandGold: '#f59e0b',
-                        brandSlate: '#334155'
+                        obsidian: '#0a0a0a',
+                        charcoal: '#171717',
+                        gold: '#D4AF37',
+                        silver: '#E0E0E0'
                     },
                     fontFamily: {
-                        sans:['Montserrat', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
+
     <style>
-        body { background-color: #0f172a; color: #f8fafc; overflow-x: hidden; }
-        /* Blueprint Hover Effect */
-        .blueprint-hover:hover .image-layer { filter: invert(100%) sepia(100%) saturate(1000%) hue-rotate(180deg) opacity(80%); mix-blend-mode: luminosity; }
-        /* Chalk Line Animation Class */
-        .chalk-line { height: 2px; background: linear-gradient(90deg, transparent, #38bdf8, transparent); transform: scaleX(0); transform-origin: left; }
+        /* Hide scrollbar for seamless reel effect */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #E0E0E0;
+            overflow-x: hidden;
+        }
+        /* Tactile Button Glow */
+        .btn-gold {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .btn-gold:hover {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-brandGold selection:text-white">
+<body class="font-body antialiased">
 
-    <!-- TELEPORTATION NAVIGATION TABS -->
-    <nav class="fixed top-0 w-full z-50 bg-brandDark/90 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black tracking-tighter text-white">
-                ANGEL CONSTRUCTION <span class="text-brandGold">AND ROOFING</span>
+    <!-- Teleport Navigation -->
+    <nav class="fixed top-0 w-full bg-obsidian/90 backdrop-blur-md z-50 border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="font-heading text-2xl font-bold tracking-widest text-gold uppercase">
+                Apex<span class="text-white">Roofing</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-sm font-bold tracking-widest text-gray-400">
-                <a href="#hero" class="teleport-tab hover:text-white transition-colors">HOME</a>
-                <a href="#services" class="teleport-tab hover:text-white transition-colors">EXPERTISE</a>
-                <a href="#about" class="teleport-tab hover:text-white transition-colors">TRUST</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="teleport-link text-sm uppercase tracking-widest hover:text-gold transition-colors">Vantage</a>
+                <a href="#integrity" class="teleport-link text-sm uppercase tracking-widest hover:text-gold transition-colors">Integrity</a>
+                <a href="#systems" class="teleport-link text-sm uppercase tracking-widest hover:text-gold transition-colors">Systems</a>
+                <a href="#action" class="teleport-link text-sm uppercase tracking-widest hover:text-gold transition-colors">Secure Asset</a>
             </div>
-            <a href="tel:5744856600" class="bg-brandGold text-brandDark px-6 py-2 font-bold rounded hover:bg-white hover:text-brandDark transition-all duration-300 transform hover:scale-105">
-                574-485-6600
-            </a>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </div>
     </nav>
 
-    <!-- CONTINUOUS REEL SECTION 1: HERO ("Sky-View" Reveal) -->
-    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0 hero-bg scale-110">
-            <img src="https://images.unsplash.com/photo-1632759145355-1e479aebde24?q=80&w=2000&auto=format&fit=crop" alt="Premium Roofing" class="w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-b from-brandDark/80 via-brandDark/50 to-brandDark"></div>
-        </div>
+    <!-- Continuous Reel Container -->
+    <main class="w-full">
 
-        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto mt-20">
-            <h2 class="hero-text opacity-0 text-brandGold font-bold tracking-[0.3em] mb-4 text-sm md:text-lg">KEEPING YOU UNDER OUR WING</h2>
-            <h1 class="hero-text opacity-0 text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight mb-8">
-                ANGEL CONSTRUCTION <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">AND ROOFING.</span>
-            </h1>
-            <p class="hero-text opacity-0 text-gray-300 text-lg md:text-xl font-serif max-w-2xl mx-auto mb-10">
-                Northwest Indiana's premier craftsmen for residential and commercial roofing. The quality of our work and reputation speaks for itself.
-            </p>
-            <div class="hero-text opacity-0">
-                <button class="bg-white text-brandDark px-8 py-4 font-bold tracking-wider hover:bg-brandGold hover:text-white transition-colors duration-300 shadow-[0_0_30px_rgba(245,158,11,0.3)]">
-                    REQUEST DRONE INSPECTION
-                </button>
+        <!-- Section 1: Hero / Vantage Point -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+            <!-- Parallax Background Image -->
+            <div class="absolute inset-0 z-0 opacity-30 parallax-bg">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Luxury Estate Roofing" class="w-full h-full object-cover">
             </div>
-        </div>
-    </section>
-
-    <!-- CHALK LINE DIVIDER -->
-    <div class="w-full max-w-7xl mx-auto px-6"><div class="chalk-line chalk-1"></div></div>
-
-    <!-- CONTINUOUS REEL SECTION 2: SERVICES (Scroll-Sync Stagger) -->
-    <section id="services" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-20">
-                <h2 class="section-header opacity-0 text-4xl md:text-6xl font-black text-white mb-6">PREMIUM CRAFTSMANSHIP.</h2>
-                <h3 class="section-header opacity-0 text-xl text-gray-400 font-serif max-w-2xl">We don't just build it for you. We turn your dreams into a reality.</h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service Card 1: Roofing -->
-                <div class="service-card opacity-0 translate-y-20 bg-brandSlate/20 border border-white/10 p-1 relative overflow-hidden group blueprint-hover cursor-pointer">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-layer transition-all duration-700 group-hover:scale-110" alt="Roofing">
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-white mb-3">Premium Roofing</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Architectural Shingles, Metal, TPO, and EPDM. Engineered to withstand Northwest Indiana's harshest storm fronts.</p>
-                    </div>
-                </div>
-
-                <!-- Service Card 2: Remodeling -->
-                <div class="service-card opacity-0 translate-y-20 bg-brandSlate/20 border border-white/10 p-1 relative overflow-hidden group blueprint-hover cursor-pointer">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-layer transition-all duration-700 group-hover:scale-110" alt="Remodeling">
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-white mb-3">Custom Remodeling</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">High-end kitchen and bathroom transformations. Precision carpentry, flooring, and interior painting.</p>
-                    </div>
-                </div>
-
-                <!-- Service Card 3: Exterior/Storm -->
-                <div class="service-card opacity-0 translate-y-20 bg-brandSlate/20 border border-white/10 p-1 relative overflow-hidden group blueprint-hover cursor-pointer">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-layer transition-all duration-700 group-hover:scale-110" alt="Exterior">
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-white mb-3">Exterior Assets</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Siding, seamless gutters, brick & stone work, and concrete installation for total property encapsulation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CHALK LINE DIVIDER -->
-    <div class="w-full max-w-7xl mx-auto px-6"><div class="chalk-line chalk-2"></div></div>
-
-    <!-- CONTINUOUS REEL SECTION 3: TRUST & PROCESS (The "Level-Check" Scroll) -->
-    <section id="about" class="py-32 bg-brandDark relative">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
-            <div class="w-full md:w-1/2">
-                <h2 class="trust-text opacity-0 text-4xl md:text-5xl font-black mb-6">KEEPING YOU<br><span class="text-brandGold">UNDER OUR WING</span></h2>
-                <div class="w-20 h-2 bg-brandGold mb-8 trust-text opacity-0"></div>
-                <p class="trust-text opacity-0 text-lg text-gray-300 font-serif mb-6 leading-relaxed">
-                    Founded by Ariatna and Juan Coral, Angel Construction & Roofing represents over a decade of relentless dedication to the craft protecting your largest asset. 
-                </p>
-                <h3 class="trust-text opacity-0 text-lg text-gray-300 font-serif mb-8 leading-relaxed">
-                    No high-pressure sales tactics. No games.
-                </h3>
-                <p class="trust-text opacity-0 text-lg text-gray-300 font-serif mb-6 leading-relaxed">
-                <p class="trust-text opacity-0 text-lg text-gray-300 font-serif mb-6 leading-relaxed">
-                    Just straightforward pricing and a philosophy built on transparency.
-                </p>
-                <div class="trust-text opacity-0 grid grid-cols-4 gap-6 border-t border-white/10 pt-8">
-                    <div>
-                        <div class="text-4xl font-black text-white mb-1">150+</div>
-                        <div class="text-sm text-gray-500 font-bold tracking-widest">5-STAR REVIEWS</div>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-black text-white mb-1">A+</div>
-                        <div class="text-sm text-gray-500 font-bold tracking-widest">BBB RATING</div>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-black text-white mb-1">500+</div>
-                        <div class="text-sm text-gray-500 font-bold tracking-widest">PROJECTS COMPLETED</div>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-black text-white mb-1">ZERO</div>
-                        <div class="text-sm text-gray-500 font-bold tracking-widest">COMPROMISES</div>
-                    </div>
-                </div>
-            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-obsidian/60 to-obsidian z-0"></div>
             
-            <div class="w-full md:w-1/2 relative trust-image-container opacity-0">
-                <div class="absolute inset-0 border-2 border-brandGold translate-x-4 translate-y-4"></div>
-                <img src="https://images.unsplash.com/photo-1541888086225-ee80c8eb44a4?q=80&w=1000&auto=format&fit=crop" class="relative z-10 w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" alt="Contractor Trust">
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <h2 class="hero-anim font-heading text-gold tracking-[0.3em] text-sm md:text-lg mb-4 uppercase">Uncompromising Standards</h2>
+                <h1 class="hero-anim font-heading text-5xl md:text-7xl font-bold text-white leading-tight mb-8">
+                    Engineered For <br> <span class="text-gold">Generational Protection.</span>
+                </h1>
+                <p class="hero-anim text-lg md:text-xl text-silver font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                    We do not merely install roofs. We architect defensive perimeters for high-net-worth estates, ensuring your most valuable asset remains impervious to the elements.
+                </p>
+                <a href="#action" class="hero-anim teleport-link inline-block bg-gold text-obsidian font-bold uppercase tracking-widest px-10 py-4 rounded-sm btn-gold">
+                    Initiate Assessment
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- GSAP Animation Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <!-- Section 2: Integrity / Philosophy -->
+        <section id="integrity" class="min-h-[80vh] flex items-center bg-charcoal relative px-6 py-24">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <h3 class="font-heading text-gold text-3xl md:text-5xl mb-6">Structural Integrity Is Non-Negotiable.</h3>
+                    <p class="text-silver text-lg leading-relaxed mb-6 font-light">
+                        When storm cells breach your perimeter, substandard materials fail. We utilize aerospace-grade underlayments and high-impact architectural alloys designed to absorb, deflect, and endure.
+                    </p>
+                    <p class="text-silver text-lg leading-relaxed font-light">
+                        Every fastener, every flashing, and every shingle is calibrated for maximum wind resistance and absolute waterproofing. Peace of mind is not promised; it is engineered.
+                    </p>
+                </div>
+                <div class="relative h-[500px] scroll-reveal-img overflow-hidden rounded-sm border border-gold/20 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1632154933391-7290d23f7c11?q=80&w=1964&auto=format&fit=crop" alt="Precision Roofing Installation" class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gold/10 mix-blend-overlay"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Systems / Services -->
+        <section id="systems" class="min-h-screen flex items-center bg-obsidian relative px-6 py-24">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="text-center mb-20 scroll-reveal">
+                    <h2 class="font-heading text-4xl md:text-6xl text-white mb-4">Elite Defense <span class="text-gold">Systems</span></h2>
+                    <p class="text-silver max-w-2xl mx-auto font-light">Tactical deployments for varying architectural requirements.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="service-card bg-charcoal p-10 border border-white/5 hover:border-gold/50 transition-colors duration-500 rounded-sm group">
+                        <div class="w-14 h-14 bg-gold/10 flex items-center justify-center rounded-full mb-6 group-hover:bg-gold transition-colors duration-500">
+                            <svg class="w-6 h-6 text-gold group-hover:text-obsidian" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </div>
+                        <h4 class="font-heading text-2xl text-white mb-4">Architectural Slate & Tile</h4>
+                        <p class="text-silver font-light leading-relaxed text-sm">
+                            Heavyweight, timeless aesthetics offering centuries of protection. Installed with meticulous geometric precision for heritage estates.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card bg-charcoal p-10 border border-white/5 hover:border-gold/50 transition-colors duration-500 rounded-sm group">
+                        <div class="w-14 h-14 bg-gold/10 flex items-center justify-center rounded-full mb-6 group-hover:bg-gold transition-colors duration-500">
+                            <svg class="w-6 h-6 text-gold group-hover:text-obsidian" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h4 class="font-heading text-2xl text-white mb-4">Standing Seam Metal</h4>
+                        <p class="text-silver font-light leading-relaxed text-sm">
+                            Sleek, impenetrable steel and copper alloys. Zero exposed fasteners. Highly reflective for thermal regulation and extreme weather deflection.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card bg-charcoal p-10 border border-white/5 hover:border-gold/50 transition-colors duration-500 rounded-sm group">
+                        <div class="w-14 h-14 bg-gold/10 flex items-center justify-center rounded-full mb-6 group-hover:bg-gold transition-colors duration-500">
+                            <svg class="w-6 h-6 text-gold group-hover:text-obsidian" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h4 class="font-heading text-2xl text-white mb-4">Storm Restoration</h4>
+                        <p class="text-silver font-light leading-relaxed text-sm">
+                            Rapid-response triage and permanent fortification following catastrophic weather events. We interface directly with your private insurance adjusters.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Action / CTA -->
+        <section id="action" class="min-h-[70vh] flex items-center justify-center bg-charcoal relative px-6 py-24 border-t border-gold/20">
+            <div class="max-w-3xl mx-auto text-center scroll-reveal">
+                <h2 class="font-heading text-4xl md:text-5xl text-white mb-6">Secure Your Perimeter.</h2>
+                <p class="text-silver text-lg mb-10 font-light leading-relaxed">
+                    Do not leave your estate's integrity to chance. Commission a comprehensive structural analysis from our master architects today.
+                </p>
+                <form class="space-y-4 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Tactical Payload Deployed. A master architect will contact you shortly.');">
+                    <input type="text" placeholder="Name or LLC" class="w-full bg-obsidian border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors" required>
+                    <input type="tel" placeholder="Direct Contact Number" class="w-full bg-obsidian border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors" required>
+                    <button type="submit" class="w-full bg-gold text-obsidian font-bold uppercase tracking-widest px-10 py-4 rounded-sm btn-gold mt-4">
+                        Request Private Consultation
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="bg-obsidian py-8 text-center border-t border-white/5">
+            <p class="text-silver/50 text-sm tracking-widest uppercase">&copy; 2026 Apex Roofing Systems. Engineered for Excellence.</p>
+        </footer>
+
+    </main>
 
     <script>
-        // Register ScrollTrigger
+        // Initialize GSAP ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-        // 1. HERO LOAD ANIMATION ("Sky-View" Reveal)
-        const heroTl = gsap.timeline();
-        heroTl.to(".hero-bg", { scale: 1, duration: 2, ease: "power3.out" })
-              .to(".hero-text", { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "back.out(1.7)" }, "-=1.5");
-
-        // 2. CHALK LINE ANIMATIONS
-        gsap.to(".chalk-1", {
-            scrollTrigger: { trigger: ".chalk-1", start: "top 80%" },
-            scaleX: 1, duration: 1, ease: "power4.out"
-        });
-        gsap.to(".chalk-2", {
-            scrollTrigger: { trigger: ".chalk-2", start: "top 80%" },
-            scaleX: 1, duration: 1, ease: "power4.out"
+        // 1. Cinematic Hero Load Animation (Wow Factor)
+        const tl = gsap.timeline();
+        tl.from(".hero-anim", {
+            y: 40,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power3.out",
+            delay: 0.2
         });
 
-        // 3. SERVICES SCROLL-SYNC (Staggered slide up)
-        gsap.to(".section-header", {
-            scrollTrigger: { trigger: "#services", start: "top 75%" },
-            y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out"
+        // 2. Parallax Effect for Hero Background
+        gsap.to(".parallax-bg", {
+            yPercent: 30,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
         });
 
-        gsap.to(".service-card", {
-            scrollTrigger: { trigger: ".service-card", start: "top 85%" },
-            y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)"
+        // 3. Compartmentalized Scroll Reveals (Fluid entry)
+        gsap.utils.toArray('.scroll-reveal').forEach(element => {
+            gsap.from(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
         });
 
-        // 4. TRUST SECTION ANIMATION
-        gsap.to(".trust-text", {
-            scrollTrigger: { trigger: "#about", start: "top 70%" },
-            y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out"
-        });
-        gsap.to(".trust-image-container", {
-            scrollTrigger: { trigger: ".trust-image-container", start: "top 70%" },
-            x: 0, opacity: 1, duration: 1.5, ease: "power3.out"
+        gsap.utils.toArray('.scroll-reveal-img').forEach(element => {
+            gsap.from(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                scale: 0.95,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power2.out"
+            });
         });
 
-        // 5. SEAMLESS "TELEPORTATION" TABS (No chaotic scrolling)
-        document.querySelectorAll('.teleport-tab').forEach(tab => {
-            tab.addEventListener('click', function(e) {
+        // 4. Staggered Service Cards
+        gsap.from(".service-card", {
+            scrollTrigger: {
+                trigger: "#systems",
+                start: "top 75%",
+                toggleActions: "play none none reverse"
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "back.out(1.2)"
+        });
+
+        // 5. Seamless Teleportation Logic (Shortcut Tabs)
+        // Eliminates rapid scrolling chaos; teleports instantly to mimic an ongoing continuous reel.
+        document.querySelectorAll('.teleport-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
+                const targetElement = document.querySelector(targetId);
                 
-                // Instantly jumps to the section without the dizzying scroll effect
-                window.scrollTo({
-                    top: targetSection.offsetTop,
-                    behavior: 'auto' // 'auto' forces instant teleportation instead of 'smooth'
-                });
-                
-                // Refresh GSAP so animations trigger properly after teleporting
-                ScrollTrigger.refresh();
+                if(targetElement) {
+                    // Calculate offset for the sticky header
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    // Teleport instantly
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "instant"
+                    });
+                    
+                    // Trigger ScrollTrigger refresh to ensure animations register the new position
+                    ScrollTrigger.refresh();
+                }
             });
         });
     </script>
