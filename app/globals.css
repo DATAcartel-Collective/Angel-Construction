@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: hsl(220 15% 8%);
+  --color-foreground: hsl(210 20% 95%);
+  --color-card: hsl(220 14% 11%);
+  --color-card-foreground: hsl(210 20% 95%);
+  --color-popover: hsl(220 14% 11%);
+  --color-popover-foreground: hsl(210 20% 95%);
+  --color-primary: hsl(24 95% 53%);
+  --color-primary-foreground: hsl(220 15% 8%);
+  --color-secondary: hsl(217 91% 33%);
+  --color-secondary-foreground: hsl(210 20% 95%);
+  --color-muted: hsl(220 12% 18%);
+  --color-muted-foreground: hsl(215 20% 65%);
+  --color-accent: hsl(217 91% 45%);
+  --color-accent-foreground: hsl(210 20% 95%);
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(210 20% 95%);
+  --color-border: hsl(220 12% 20%);
+  --color-input: hsl(220 12% 18%);
+  --color-ring: hsl(24 95% 53%);
+  --radius: 0.5rem;
+  
+  /* Custom Industrial Colors */
+  --color-slate-steel: hsl(220 14% 15%);
+  --color-safety-orange: hsl(24 95% 53%);
+  --color-blueprint-blue: hsl(217 91% 33%);
+  --color-metallic-gray: hsl(220 10% 40%);
+  --color-steel-border: hsl(220 12% 25%);
+  
+  /* Font families */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-oswald), system-ui, sans-serif;
+  
+  /* Animations */
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  :root {
+    /* Industrial Dark Theme - Slate Gray, Safety Orange, Blueprint Blue */
+    --background: 220 15% 8%; /* Deep industrial slate */
+    --foreground: 210 20% 95%; /* Bright white with slight cool tint */
+
+    --card: 220 14% 11%; /* Slightly lighter than background */
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 14% 11%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 24 95% 53%; /* Safety Orange */
+    --primary-foreground: 220 15% 8%;
+
+    --secondary: 217 91% 33%; /* Blueprint Blue */
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 220 12% 18%; /* Muted slate */
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 91% 45%; /* Lighter Blueprint Blue */
+    --accent-foreground: 210 20% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 220 12% 20%; /* Subtle border */
+    --input: 220 12% 18%;
+    --ring: 24 95% 53%; /* Orange ring */
+
+    --radius: 0.5rem;
+
+    /* Custom Industrial Colors */
+    --slate-steel: 220 14% 15%;
+    --safety-orange: 24 95% 53%;
+    --blueprint-blue: 217 91% 33%;
+    --metallic-gray: 220 10% 40%;
+    --steel-border: 220 12% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar for industrial feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--metallic-gray));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  /* Scroll snap utilities */
+  .snap-mandatory {
+    scroll-snap-type: y mandatory;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+  }
+
+  /* Glassmorphism utility */
+  .glass {
+    background: rgba(17, 20, 26, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-strong {
+    background: rgba(17, 20, 26, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Metallic gradient utilities */
+  .metallic-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(220, 14%, 13%) 0%,
+      hsl(220, 14%, 18%) 50%,
+      hsl(220, 14%, 13%) 100%
+    );
+  }
+
+  .metallic-border {
+    border: 1px solid transparent;
+    background: linear-gradient(hsl(220, 14%, 11%), hsl(220, 14%, 11%)) padding-box,
+      linear-gradient(135deg, hsl(220, 12%, 30%), hsl(220, 12%, 15%)) border-box;
+  }
+
+  /* Orange glow effect */
+  .glow-orange {
+    box-shadow: 0 0 30px -5px hsl(24, 95%, 53%, 0.3);
+  }
+
+  /* Blueprint line pattern */
+  .blueprint-grid {
+    background-image: 
+      linear-gradient(hsl(217, 91%, 33%, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(217, 91%, 33%, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Text gradient */
+  .text-gradient-orange {
+    background: linear-gradient(135deg, hsl(24, 95%, 53%) 0%, hsl(30, 95%, 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animation utilities for GSAP prep */
+  .will-animate {
+    will-change: transform, opacity;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+  }
+}
