@@ -47,7 +47,7 @@ export function StatsSection() {
   return (
     <section
       id="about"
-      className="relative py-20 snap-section overflow-hidden"
+      className="relative py-20 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 metallic-gradient" />

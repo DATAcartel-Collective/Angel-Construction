@@ -7,7 +7,7 @@ import { Footer } from "@/components/landing/footer"
 
 export default function LandingPage() {
   return (
-    <main className="relative h-screen overflow-y-auto snap-mandatory scroll-smooth">
+    <main className="relative h-screen overflow-y-auto snap-y snap-proximity scroll-smooth">
       {/* Fixed Navigation */}
       <Navigation />
 
@@ -15,8 +15,12 @@ export default function LandingPage() {
       <HeroSection />
       <ServicesSection />
       <LeadCaptureSection />
-      <StatsSection />
-      <Footer />
+      
+      {/* Stats + Footer grouped as final section */}
+      <div className="snap-start">
+        <StatsSection />
+        <Footer />
+      </div>
     </main>
   )
 }
