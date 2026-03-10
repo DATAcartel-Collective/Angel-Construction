@@ -56,29 +56,29 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm leading-relaxed">
-              Keeping you under our wing since 2014. We're a family-owned business 
+              Keeping you under our wing since 2014. We're a family-owned business
               dedicated to protecting what matters most — your home and family.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:+15551234567"
+                href="tel:+15744856600"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span>(555) 123-4567</span>
+                <span>(574) 485-6600</span>
               </a>
               <a
-                href="mailto:info@angelroofing.com"
+                href="contact@angelcontructionandroofing.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                <span>info@angelroofing.com</span>
+                <span>contact@angelcontructionandroofing.com</span>
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span>123 Construction Ave, Suite 100</span>
+                <span>17740 Darden Rd, South Bend, IN 46635</span>
               </div>
             </div>
 

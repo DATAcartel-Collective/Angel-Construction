@@ -66,11 +66,11 @@ export function Navigation() {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:+15551234567"
+              href="tel:+15744856600"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <Phone className="h-4 w-4" />
-              <span>(555) 123-4567</span>
+              <span>(574) 485-6600</span>
             </a>
             <Link
               href="#estimate"
@@ -111,11 +111,11 @@ export function Navigation() {
             ))}
             <div className="pt-4 border-t border-border">
               <a
-                href="tel:+15551234567"
+                href="tel:+15744856600"
                 className="flex items-center gap-2 text-muted-foreground mb-4"
               >
                 <Phone className="h-4 w-4" />
-                <span>(555) 123-4567</span>
+                <span>(574) 485-6600</span>
               </a>
               <Link
                 href="#estimate"
